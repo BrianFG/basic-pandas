@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  jupyter:
+    platform: linux/amd64
+    build: 
+      context: jupyter/
+    volumes:
+      - ./jupyter/src:/home/pandas/src
+    ports:
+      - 8880:8888
+    restart: always
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_PASSWORD:-jupyter}
